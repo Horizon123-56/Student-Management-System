@@ -2,6 +2,13 @@ pipeline {
 
     agent any 
 
+    stage('Checkout Source Code') {
+            steps {
+                echo 'Downloading latest application code from GitHub...'
+                git branch: 'main',
+                url: ''
+            }
+        }
     stages { 
 
         stage('Verify Application Files') { 
