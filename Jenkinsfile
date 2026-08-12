@@ -2,13 +2,6 @@ pipeline {
 
     agent any 
 
-    stage('Checkout Source Code') {
-            steps {
-                echo 'Downloading latest application code from GitHub...'
-                git branch: 'main',
-                url: 'https://github.com/Horizon123-56/Student-Management-System.git'
-            }
-        }
     stages { 
 
         stage('Verify Application Files') { 
@@ -29,15 +22,21 @@ pipeline {
 
         } 
 
+        stage('Checkout Source Code') {
+            steps {
+                echo 'Downloading latest application code from GitHub...'
+                git branch: 'main',
+                url: 'https://github.com/Horizon123-56/Student-Management-System.git'
+            }
+        }
+        
         stage('Create Build Artifact') { 
 
             steps { 
 
                 echo 'Creating ZIP file...' 
 
-     bat 'powershell Compress-Archive -Path * -DestinationPath  
-
-StudentManagementSystem.zip -Force' 
+     bat 'powershell Compress-Archive -Path * -DestinationPath StudentManagementSystem.zip -Force' 
 
             } 
 
