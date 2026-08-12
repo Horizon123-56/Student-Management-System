@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Downloading latest application code from GitHub...'
                 git branch: 'main',
-                url: ''
+                url: 'https://github.com/Horizon123-56/Student-Management-System.git'
             }
         }
     stages { 
